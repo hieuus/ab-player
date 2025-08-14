@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-B Audio Player</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>A-B Audio Player</h1>
+            <div class="file-upload-area">
+                <input type="file" id="audioFile" accept="audio/*" hidden>
+                <button id="uploadBtn" class="upload-btn">
+                    <span class="upload-icon">📁</span>
+                    Choose Audio File
+                </button>
+                <div id="fileName" class="file-name"></div>
+            </div>
+        </header>
+
+        <main class="player-container">
+            <div class="audio-info">
+                <div id="trackTitle" class="track-title">No file selected</div>
+                <div id="trackDuration" class="track-duration">00:00</div>
+            </div>
+
+            <div class="progress-container">
+                <div class="time-display" id="currentTime">00:00</div>
+                <div class="progress-wrapper">
+                    <div class="progress-bar" id="progressBar">
+                        <div class="progress-fill" id="progressFill"></div>
+                        <div class="progress-handle" id="progressHandle"></div>
+                        <div class="loop-marker a-marker" id="aMarker"></div>
+                        <div class="loop-marker b-marker" id="bMarker"></div>
+                        <div class="loop-region" id="loopRegion"></div>
+                    </div>
+                </div>
+                <div class="time-display" id="totalTime">00:00</div>
+            </div>
+
+            <div class="controls-section">
+                <div class="main-controls">
+                    <button id="playPauseBtn" class="control-btn play-pause-btn" disabled>
+                        <span class="play-icon">▶️</span>
+                    </button>
+                </div>
+
+                <div class="speed-controls">
+                    <label for="speedSelect">Speed:</label>
+                    <select id="speedSelect" class="speed-select" disabled>
+                        <option value="0.25">0.25x</option>
+                        <option value="0.5">0.5x</option>
+                        <option value="1" selected>1x</option>
+                        <option value="1.25">1.25x</option>
+                        <option value="1.5">1.5x</option>
+                        <option value="2">2x</option>
+                    </select>
+                </div>
+
+                <div class="loop-controls">
+                    <button id="setABtn" class="control-btn loop-btn" disabled>Set A</button>
+                    <button id="setBBtn" class="control-btn loop-btn" disabled>Set B</button>
+                    <button id="toggleLoopBtn" class="control-btn loop-btn" disabled>Loop Off</button>
+                    <button id="clearLoopBtn" class="control-btn loop-btn" disabled>Clear</button>
+                </div>
+            </div>
+
+            <div class="keyboard-shortcuts">
+                <h3>Keyboard Shortcuts</h3>
+                <div class="shortcuts-grid">
+                    <div class="shortcut-item">
+                        <kbd>Space</kbd>
+                        <span>Play/Pause</span>
+                    </div>
+                    <div class="shortcut-item">
+                        <kbd>←</kbd><kbd>→</kbd>
+                        <span>Seek ±10s</span>
+                    </div>
+                    <div class="shortcut-item">
+                        <kbd>↑</kbd><kbd>↓</kbd>
+                        <span>Speed ±0.25x</span>
+                    </div>
+                    <div class="shortcut-item">
+                        <kbd>A</kbd>
+                        <span>Set A point</span>
+                    </div>
+                    <div class="shortcut-item">
+                        <kbd>B</kbd>
+                        <span>Set B point</span>
+                    </div>
+                    <div class="shortcut-item">
+                        <kbd>L</kbd>
+                        <span>Toggle Loop</span>
+                    </div>
+                    <div class="shortcut-item">
+                        <kbd>C</kbd>
+                        <span>Clear Loop</span>
+                    </div>
+                    <div class="shortcut-item">
+                        <kbd>1-6</kbd>
+                        <span>Speed Select</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <audio id="audioElement" preload="metadata"></audio>
+    </div>
+
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/audio-player.js"></script>
+    <script src="scripts/controls.js"></script>
+    <script src="scripts/keyboard.js"></script>
+    <script src="scripts/app.js"></script>
+</body>
+</html>

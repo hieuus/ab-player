@@ -1,0 +1,297 @@
+/* Component-specific styles */
+
+/* Progress Bar Component */
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: var(--surface);
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+    transition: var(--transition);
+    border: 1px solid var(--border-color);
+}
+
+.progress-bar:hover {
+    height: 12px;
+    border-color: var(--primary-color);
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
+    border-radius: 4px;
+    transition: width 0.1s ease-out;
+    position: relative;
+}
+
+.progress-handle {
+    width: 16px;
+    height: 16px;
+    background: var(--primary-color);
+    border: 2px solid white;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    right: -8px;
+    transform: translateY(-50%);
+    cursor: grab;
+    opacity: 0;
+    transition: var(--transition);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.progress-handle:active {
+    cursor: grabbing;
+}
+
+.progress-bar:hover .progress-handle,
+.progress-handle.dragging {
+    opacity: 1;
+}
+
+/* Loop Markers */
+.loop-marker {
+    position: absolute;
+    top: -4px;
+    width: 2px;
+    height: 16px;
+    border-radius: 1px;
+    opacity: 0;
+    transition: var(--transition);
+    z-index: 10;
+}
+
+.loop-marker.visible {
+    opacity: 1;
+}
+
+.a-marker {
+    background: var(--success);
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+}
+
+.b-marker {
+    background: var(--error);
+    box-shadow: 0 0 8px rgba(239, 68, 68, 0.5);
+}
+
+.loop-region {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        rgba(16, 185, 129, 0.2), 
+        rgba(239, 68, 68, 0.2)
+    );
+    border-radius: 4px;
+    opacity: 0;
+    transition: var(--transition);
+    pointer-events: none;
+}
+
+.loop-region.visible {
+    opacity: 1;
+}
+
+/* A-B Markers Labels */
+.loop-marker::before {
+    content: '';
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2px 6px;
+    background: var(--background-dark);
+    color: var(--text-primary);
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    white-space: nowrap;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.a-marker::before {
+    content: 'A';
+    color: var(--success);
+}
+
+.b-marker::before {
+    content: 'B';
+    color: var(--error);
+}
+
+.loop-marker:hover::before,
+.loop-marker.visible::before {
+    opacity: 1;
+}
+
+/* Speed Select Component */
+.speed-select option {
+    background: var(--surface);
+    color: var(--text-primary);
+}
+
+/* Loop Controls Active States */
+.loop-btn.a-set {
+    background: var(--success);
+    border-color: var(--success);
+    color: white;
+}
+
+.loop-btn.b-set {
+    background: var(--error);
+    border-color: var(--error);
+    color: white;
+}
+
+.loop-btn.loop-active {
+    background: var(--warning);
+    border-color: var(--warning);
+    color: white;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* File Drop Zone */
+.file-upload-area.drag-over {
+    background: rgba(99, 102, 241, 0.1);
+    border: 2px dashed var(--primary-color);
+    border-radius: var(--border-radius-lg);
+    padding: 2rem;
+    transition: var(--transition);
+}
+
+.file-upload-area.drag-over .upload-btn {
+    transform: scale(1.05);
+}
+
+/* Loading States */
+.loading {
+    position: relative;
+    overflow: hidden;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    animation: loading-shimmer 1.5s infinite;
+}
+
+@keyframes loading-shimmer {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/* Error States */
+.error {
+    border-color: var(--error) !important;
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.1);
+}
+
+.error-message {
+    color: var(--error);
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.error-message::before {
+    content: '⚠️';
+}
+
+/* Success States */
+.success {
+    border-color: var(--success) !important;
+    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.1);
+}
+
+/* Tooltip Component */
+.tooltip {
+    position: relative;
+}
+
+.tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--background-dark);
+    color: var(--text-primary);
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--border-radius);
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition);
+    border: 1px solid var(--border-color);
+    z-index: 100;
+}
+
+.tooltip::before {
+    content: '';
+    position: absolute;
+    bottom: 112%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 4px solid transparent;
+    border-top-color: var(--background-dark);
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition);
+    z-index: 100;
+}
+
+.tooltip:hover::after,
+.tooltip:hover::before {
+    opacity: 1;
+}
+
+/* Focus States for Accessibility */
+.control-btn:focus,
+.speed-select:focus,
+.upload-btn:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--surface);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--surface-light);
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}

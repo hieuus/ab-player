@@ -1,0 +1,312 @@
+/* Responsive Design */
+
+/* Tablet styles */
+@media (max-width: 768px) {
+    .app-container {
+        padding: 1rem;
+    }
+
+    .app-header h1 {
+        font-size: 2rem;
+    }
+
+    .player-container {
+        padding: 1.5rem;
+    }
+
+    .progress-container {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .progress-wrapper {
+        order: -1;
+    }
+
+    .time-display {
+        min-width: auto;
+    }
+
+    .controls-section {
+        gap: 1.5rem;
+    }
+
+    .loop-controls {
+        gap: 0.25rem;
+    }
+
+    .loop-btn {
+        min-width: 70px;
+        padding: 0.6rem 0.75rem;
+        font-size: 0.8rem;
+    }
+
+    .shortcuts-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+    }
+
+    .shortcut-item {
+        padding: 0.5rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+}
+
+/* Mobile styles */
+@media (max-width: 480px) {
+    .app-container {
+        padding: 0.5rem;
+    }
+
+    .app-header {
+        margin-bottom: 2rem;
+    }
+
+    .app-header h1 {
+        font-size: 1.75rem;
+    }
+
+    .upload-btn {
+        padding: 0.875rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .player-container {
+        padding: 1rem;
+    }
+
+    .audio-info {
+        margin-bottom: 1.5rem;
+    }
+
+    .track-title {
+        font-size: 1.1rem;
+    }
+
+    .progress-container {
+        gap: 0.5rem;
+    }
+
+    .time-display {
+        font-size: 0.8rem;
+    }
+
+    .progress-bar {
+        height: 10px;
+    }
+
+    .progress-bar:hover {
+        height: 14px;
+    }
+
+    .progress-handle {
+        width: 20px;
+        height: 20px;
+        right: -10px;
+    }
+
+    .controls-section {
+        gap: 1.25rem;
+    }
+
+    .play-pause-btn {
+        padding: 0.875rem 1.5rem;
+        font-size: 1rem;
+        min-width: 100px;
+    }
+
+    .speed-controls {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .speed-controls label {
+        font-size: 0.9rem;
+    }
+
+    .speed-select {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.85rem;
+        width: 100px;
+    }
+
+    .loop-controls {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+    }
+
+    .loop-btn {
+        min-width: auto;
+        padding: 0.6rem 0.5rem;
+        font-size: 0.75rem;
+    }
+
+    .keyboard-shortcuts {
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+    }
+
+    .keyboard-shortcuts h3 {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .shortcuts-grid {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    .shortcut-item {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .shortcut-item kbd {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.4rem;
+        min-width: 1.5rem;
+    }
+
+    .shortcut-item span {
+        font-size: 0.75rem;
+    }
+
+    /* Adjust loop markers for touch */
+    .loop-marker {
+        width: 3px;
+        height: 20px;
+        top: -6px;
+    }
+
+    .loop-marker::before {
+        top: -28px;
+        font-size: 0.65rem;
+        padding: 2px 4px;
+    }
+
+    /* Make touch targets larger */
+    .control-btn {
+        min-height: 44px;
+    }
+
+    .speed-select {
+        min-height: 44px;
+    }
+
+    .upload-btn {
+        min-height: 44px;
+    }
+}
+
+/* Landscape mobile styles */
+@media (max-width: 768px) and (orientation: landscape) {
+    .app-container {
+        padding: 1rem 2rem;
+    }
+
+    .keyboard-shortcuts {
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+    }
+
+    .shortcuts-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .shortcut-item {
+        flex-direction: row;
+        padding: 0.4rem;
+    }
+}
+
+/* Large desktop styles */
+@media (min-width: 1200px) {
+    .app-container {
+        max-width: 900px;
+        padding: 3rem;
+    }
+
+    .app-header h1 {
+        font-size: 3rem;
+    }
+
+    .player-container {
+        padding: 3rem;
+    }
+
+    .shortcuts-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --background-dark: #000000;
+        --background-light: #1a1a1a;
+        --surface: #2a2a2a;
+        --surface-light: #3a3a3a;
+        --text-primary: #ffffff;
+        --text-secondary: #e0e0e0;
+        --border-color: #555555;
+    }
+
+    .control-btn,
+    .speed-select,
+    .upload-btn {
+        border-width: 2px;
+    }
+
+    .progress-bar {
+        border-width: 2px;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .progress-handle {
+        transition: opacity 0.01ms;
+    }
+
+    .loading::after {
+        animation: none;
+    }
+
+    .pulsing {
+        animation: none;
+    }
+}
+
+/* Print styles */
+@media print {
+    .app-container {
+        background: white;
+        color: black;
+        box-shadow: none;
+    }
+
+    .player-container {
+        background: white;
+        border: 1px solid black;
+        box-shadow: none;
+    }
+
+    .keyboard-shortcuts {
+        page-break-inside: avoid;
+    }
+
+    .controls-section,
+    .progress-container {
+        display: none;
+    }
+}
