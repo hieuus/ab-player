@@ -11,7 +11,7 @@ A modern, feature-rich audio player web application with A-B loop functionality 
 - Visual progress tracking
 
 ### ⚡ Speed Control
-- Variable playback speeds: 0.25x, 0.5x, 1x, 1.25x, 1.5x, 2x
+- Variable playback speeds: 0.25x, 0.5x, 0.75x, 1x, 1.25x, 1.5x, 2x
 - Smooth speed transitions
 - Keyboard shortcuts for quick speed adjustment
 

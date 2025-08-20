@@ -8,7 +8,7 @@ class KeyboardHandler {
         this.activeKeys = new Set();
         
         // Speed options for keyboard control
-        this.speedOptions = [0.25, 0.5, 1, 1.25, 1.5, 2];
+        this.speedOptions = [0.25, 0.5, 0.75, 1, 1.25, 1.5, 2];
         
         this.setupEventListeners();
     }
